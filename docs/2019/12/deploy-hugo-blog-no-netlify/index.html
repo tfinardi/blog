@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>CI/CD Hugo Blog no Netlify | Thiago Finardi</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noodp" />
+<meta name="Description" content="Seria muito bom atualizar seus arquivos do blog pessoal e ter o deploy automático da nova versão certo? Neste artigo, mostro como configurar seu repositório no GitHub e linkar com o Netlify, para que o mesmo se encarregue de hospedar e realizar o Deploy da nova versão.">
+<link rel="prev" href="https://finardi.me/2019/12/criando-blog-pessoal-com-o-hugo/" />
+<link rel="canonical" href="https://finardi.me/2019/12/deploy-hugo-blog-no-netlify/" />
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CI/CD Hugo Blog no Netlify"/>
+<meta name="twitter:description" content="Seria muito bom atualizar seus arquivos do blog pessoal e ter o deploy automático da nova versão certo? Neste artigo, mostro como configurar seu repositório no GitHub e linkar com o Netlify, para que o mesmo se encarregue de hospedar e realizar o Deploy da nova versão."/>
+<script type="application/ld+json">
+    {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "CI\/CD Hugo Blog no Netlify",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https:\/\/finardi.me\/2019\/12\/deploy-hugo-blog-no-netlify\/"
+    },
+    
+        "image": {
+            "@type": "ImageObject",
+            "url": "https:\/\/finardi.me\/cover.png",
+            "width":  800 ,
+            "height":  600 
+        },
+    
+    "genre": "posts",
+    
+        "keywords": "Hugo, Netlify, CI\/CD",
+    
+    "wordcount":  3 ,
+    "url": "https:\/\/finardi.me\/2019\/12\/deploy-hugo-blog-no-netlify\/",
+    
+        "datePublished": "2019-12-29T18:21:50-03:00",
+    
+    
+        "dateModified": "2019-08-25T16:22:42\x2b08:00",
+    
+    
+        "license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.",
+    
+    
+        "publisher": {
+            "@type": "Organization",
+            "name": "Thiago Finardi",
+            "logo": {
+            "@type": "ImageObject",
+            "url": "https:\/\/finardi.me\/logo.png",
+            "width":  127 ,
+            "height":  40 
+            }
+        },
+    
+    
+    "description": "Seria muito bom atualizar seus arquivos do blog pessoal e ter o deploy automático da nova versão certo? Neste artigo, mostro como configurar seu repositório no GitHub e linkar com o Netlify, para que o mesmo se encarregue de hospedar e realizar o Deploy da nova versão."
+    }
+    </script>
+<link rel="stylesheet" href="/css/style.min.css">
+<link rel="stylesheet" href="/css/lib/fontawesome-free/all.min.min.css">
+
+<link rel="stylesheet" href="/css/lib/animate/animate.min.min.css">
+
+    </head>
+    <body class="dark-theme">
+        <script>
+            window.isDark = (window.localStorage && window.localStorage.getItem('theme')) === 'dark';
+            window.isDark && document.body.classList.add('dark-theme');
+        </script>
+        <div class="wrapper">
+            <nav class="navbar">
+    <div class="navbar-container animated fadeInDown">
+        <div class="navbar-header">
+            <a href="https://finardi.me/">Thiago Finardi</a>
+        </div>
+        <div class="navbar-menu">
+            
+            
+                <a class="menu-item" href="https://finardi.me/" title="">Home</a>
+            
+                <a class="menu-item" href="https://finardi.me/about" title="">Sobre</a>
+            
+                <a class="menu-item" href="https://finardi.me/posts" title="">Posts</a>
+            
+                <a class="menu-item" href="https://finardi.me/tags" title="">Tags</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile">
+     <div class="navbar-container">
+        <div class="navbar-header">
+            <div class="navbar-header-title animated bounceIn">
+                <a href="https://finardi.me/">Thiago Finardi</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="navbar-menu" id="mobile-menu">
+            
+            
+                <a class="menu-item" href="https://finardi.me/" title="">Home</a>
+            
+                <a class="menu-item" href="https://finardi.me/about" title="">Sobre</a>
+            
+                <a class="menu-item" href="https://finardi.me/posts" title="">Posts</a>
+            
+                <a class="menu-item" href="https://finardi.me/tags" title="">Tags</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a>
+        </div>
+    </div>
+</nav><main class="main">
+                <div class="container">
+                    
+    
+    
+    
+
+    <article class="post-warp animated fadeIn">
+        <h1 class="post-title animated flipInX">CI/CD Hugo Blog no Netlify</h1>
+
+        <div class="post-meta">
+            <div class="post-meta-main">
+                <a class="author" href="https://finardi.me/" rel="author"><i class="fas fa-user-circle fa-fw"></i>Thiago Finardi&nbsp;</a>
+                <span class="post-category">
+                        
+                        <i class="far fa-folder fa-fw"></i><a href="https://finardi.me/categories/devops/">DevOps</a>
+                            
+                    </span>
+            </div>
+            <div class="post-meta-other">
+                <i class="far fa-calendar-alt fa-fw"></i><time datetime=2019-12-29>2019-12-29</time>&nbsp;
+                <i class="fas fa-pencil-alt fa-fw"></i>&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;</div>
+        </div>
+
+        
+
+        <div class="post-toc" id="post-toc">
+                <h2 class="post-toc-title"></h2>
+                <div class="post-toc-content">
+                    <nav id="TableOfContents"></nav>
+                </div>
+            </div>
+            <div class="post-toc-mobile" id="post-toc-mobile">
+                <details>
+                    <summary><div class="post-toc-title"><span></span><span><i class="details icon fas fa-angle-down"></i></span></div></summary>
+                    <div class="post-toc-content">
+                        
+                        
+                        <nav id="TableOfContentsMobile"></nav>
+                    </div>
+                </details>
+            </div>
+
+        <div class="post-content">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <p>Meu texto aqui</p>
+        </div>
+
+        <div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>%!(EXTRA string=2019-08-25)</span>
+            </div>
+            <div class="post-info-license">
+                
+            </div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md">
+                
+                    
+                        <span><a class="link-to-markdown" href="https://finardi.me/2019/12/deploy-hugo-blog-no-netlify/index.md" target="_blank"></a></span>
+                    
+                
+            </div>
+            <div class="post-info-share">
+                
+                    <span>
+    
+        <a href="//twitter.com/share?url=https%3a%2f%2ffinardi.me%2f2019%2f12%2fdeploy-hugo-blog-no-netlify%2f&amp;text=CI%2fCD%20Hugo%20Blog%20no%20Netlify&amp;via=tfinardi" target="_blank" title="Share on Twitter">
+            <i class="fab fa-twitter fa-fw"></i>
+        </a>
+    
+    
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ffinardi.me%2f2019%2f12%2fdeploy-hugo-blog-no-netlify%2f" target="_blank" title="Share on Facebook">
+            <i class="fab fa-facebook-square fa-fw"></i>
+        </a>
+    
+    
+    
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2ffinardi.me%2f2019%2f12%2fdeploy-hugo-blog-no-netlify%2f&amp;title=CI%2fCD%20Hugo%20Blog%20no%20Netlify" target="_blank" title="Share on LinkedIn">
+            <i class="fab fa-linkedin fa-fw"></i>
+        </a>
+    
+    
+    
+    
+    
+    
+    
+</span>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section>
+            
+                
+                    <span class="tag">
+                        <a href="https://finardi.me/tags/hugo/"><i class="fas fa-tag fa-fw"></i>Hugo</a>
+                    </span>
+                
+                    <span class="tag">
+                        <a href="https://finardi.me/tags/netlify/"><i class="fas fa-tag fa-fw"></i>Netlify</a>
+                    </span>
+                
+                    <span class="tag">
+                        <a href="https://finardi.me/tags/ci/cd/"><i class="fas fa-tag fa-fw"></i>CI/CD</a>
+                    </span>
+                
+            
+        </section>
+        <section>
+            <span><a href="javascript:window.history.back();"></a></span>&nbsp;|&nbsp;<span><a href="https://finardi.me/"></a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+            <a href="https://finardi.me/2019/12/criando-blog-pessoal-com-o-hugo/" class="prev" rel="prev" title="Criando seu blog pessoal com o Hugo"><i class="fas fa-angle-left fa-fw"></i>Criando seu blog pessoal com o Hugo</a>
+        
+        
+    </div>
+</div>
+
+        <div class="post-comment">
+            
+            <div id="disqus_thread"></div>
+<script>
+
+
+
+
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://finardi.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+        </div>
+    </article></div>
+            </main>
+            <footer class="footer animated fadeInUp">
+    <div class="copyright">
+        <div class="copyright-line">
+            Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a>&nbsp;|&nbsp;Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="external nofollow noopener noreffer">LoveIt<i class="far fa-heart fa-fw"></i></a>
+        </div>
+        <div class="copyright-line">
+            <i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://finardi.me/">Thiago Finardi</a></span><span class="license">&nbsp;|&nbsp;<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+    </div>
+</footer>
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+<script src="/js/lib/jquery/jquery.slim.min.min.js"></script>
+<script src="/js/lib/lazysizes/lazysizes.min.min.js"></script>
+<script src="/js/lib/smooth-scroll/smooth-scroll.polyfills.min.min.js"></script><script>window.scroll = new SmoothScroll('[data-scroll]', {speed: 300, speedAsDuration: true});</script>
+
+
+    
+    
+
+    
+
+    
+        <link rel="stylesheet" href="/css/lib/katex/katex.min.min.css"><script src="/js/lib/katex/katex.min.min.js"></script><script defer src="/js/lib/katex/auto-render.min.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    
+
+    
+
+
+
+
+
+
+<script src="/js/blog.min.js"></script>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155028166-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</div>
+        <a href="#" class="dynamic-to-top" id="dynamic-to-top" data-scroll><span>&nbsp;</span></a>
+    </body>
+</html>

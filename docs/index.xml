@@ -1,0 +1,60 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Thiago Finardi on Thiago Finardi</title>
+        <link>https://finardi.me/</link>
+        <description>Recent content in Thiago Finardi on Thiago Finardi</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+            <language>pt-br</language>
+        
+        
+        
+            <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+        
+        
+            <lastBuildDate>Sun, 29 Dec 2019 18:21:50 -0300</lastBuildDate>
+        
+        <atom:link href="https://finardi.me/" rel="self" type="application/rss+xml" />
+        
+            <item>
+                <title>Posts</title>
+                <link>https://finardi.me/posts/</link>
+                <pubDate>Sun, 29 Dec 2019 18:21:50 -0300</pubDate>
+                
+                <guid>https://finardi.me/posts/</guid>
+                <description></description>
+            </item>
+        
+            <item>
+                <title>Sobre Thiago Finardi</title>
+                <link>https://finardi.me/about/</link>
+                <pubDate>Fri, 02 Aug 2019 11:04:49 +0800</pubDate>
+                
+                <guid>https://finardi.me/about/</guid>
+                <description>&lt;h2 id=&#34;thiagofinardime-whoami&#34;&gt;&lt;a href=&#34;./&#34;&gt;thiago@finardi.me:~$ whoami&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;../&#34;&gt;&lt;img src=&#34;https://finardi.me/images/thiagofinardi.png&#34; alt=&#34;Thiago Finardi&#34; title=&#34;Thiago Finardi&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Me chamo Thiago Finardi, mais conhecido como &lt;strong&gt;FINARDI&lt;/strong&gt;. Sou profissional de TI com mais de 13 anos de experiência em infraestrutura computacional, redes, segurança da informação, treinamento e suporte. Atualmente, exerço o papel de &lt;strong&gt;Arquiteto de Soluções em Cloud Computing&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Dentre os principais conhecimentos pertinentes a área de atuação estão: &lt;strong&gt;Virtualização&lt;/strong&gt; (VMware vSphere / Xen Server), &lt;strong&gt;Next Generation Firewalls&lt;/strong&gt; (Cisco, Palo Alto e F5 Networks); &lt;strong&gt;Cloud Computing&lt;/strong&gt; (Microsoft Azure, Amazon Web Services e Google Cloud); &lt;strong&gt;DevOps&lt;/strong&gt;; &lt;strong&gt;Machine Learning&lt;/strong&gt;; &lt;strong&gt;Microserviços&lt;/strong&gt;; &lt;strong&gt;Infraestrutura hibrida&lt;/strong&gt; e; &lt;strong&gt;Infraestrutura como Código&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Durante minha jornada na área de TI pude executar vários papéis, porém sempre com ênfase na administração de sistemas, como &lt;strong&gt;VMware vSphere&lt;/strong&gt;, &lt;strong&gt;Xen Server&lt;/strong&gt;, &lt;strong&gt;GNU/Linux&lt;/strong&gt; (Debian e Red Hat) e &lt;strong&gt;Windows Server&lt;/strong&gt;. Assim como os mais diversos serviços suportados por uma infraestrutura de TI.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;interesses&#34;&gt;&lt;strong&gt;Interesses&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;:(fas fa-terminal): &lt;strong&gt;GNU/Linux&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;:(fas fa-cloud): &lt;strong&gt;Cloud Computing&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;:(fas fa-laptop-code): &lt;strong&gt;Infraestrutura como Código&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;:(fas fa-file-code): &lt;strong&gt;Infraestrutura imutável&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;:(fas fa-shield-alt): &lt;strong&gt;Segurança e Privacidade&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;:(fas fa-project-diagram): &lt;strong&gt;CI/CD&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;:(fas fa-brain): &lt;strong&gt;Inteligência Artificial&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;:(fas fa-robot): &lt;strong&gt;Machine Learning&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;:(fas fa-network-wired): &lt;strong&gt;IoT e Edge Computing&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;:(fas fa-cogs): &lt;strong&gt;DevOps (ferramentas/cultura)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href=&#34;../&#34;&gt; Voltar &lt;/a&gt;&lt;/p&gt;
+</description>
+            </item>
+        
+    </channel>
+</rss>

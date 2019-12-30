@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CI/CD on Thiago Finardi</title>
+    <link>https://finardi.me/tags/ci/cd/</link>
+    <description>Recent content in CI/CD on Thiago Finardi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sun, 29 Dec 2019 18:21:50 -0300</lastBuildDate>
+    
+	<atom:link href="https://finardi.me/tags/ci/cd/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CI/CD Hugo Blog no Netlify</title>
+      <link>https://finardi.me/2019/12/deploy-hugo-blog-no-netlify/</link>
+      <pubDate>Sun, 29 Dec 2019 18:21:50 -0300</pubDate>
+      
+      <guid>https://finardi.me/2019/12/deploy-hugo-blog-no-netlify/</guid>
+      <description>&lt;p&gt;Meu texto aqui&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
